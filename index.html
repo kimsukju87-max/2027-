@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2027학년도 교육계획 수립을 위한 설문지(교사용)</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Pretendard', sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col">
+
+    <header class="bg-emerald-700 text-white shadow-md sticky top-0 z-50">
+        <div class="max-w-4xl mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <i class="fa-solid fa-school text-2xl"></i>
+                <div>
+                    <h1 class="text-lg md:text-xl font-bold">목포청호초등학교</h1>
+                    <p class="text-xs text-emerald-200">2027학년도 교육계획 수립을 위한 교사용 설문조사</p>
+                </div>
+            </div>
+            <button id="adminTabBtn" onclick="openAdminModal()" class="bg-emerald-800 hover:bg-emerald-900 text-emerald-100 px-3 py-2 rounded-lg text-sm font-medium transition flex items-center space-x-1.5 shadow-inner">
+                <i class="fa-solid fa-lock text-xs"></i>
+                <span>전문가관리</span>
+            </button>
+        </div>
+    </header>
+
+    <main class="flex-grow max-w-4xl w-full mx-auto p-4 md:p-6">
+        
+        <!-- Intro Card -->
+        <section class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 md:p-8 mb-6">
+            <h2 class="text-xl md:text-2xl font-bold text-slate-900 mb-4 border-b pb-3">2027학년도 교육계획 수립을 위한 설문지(교사용)</h2>
+            <div class="space-y-3 text-slate-600 text-sm md:text-base leading-relaxed">
+                <p>안녕하십니까?</p>
+                <p>본 설문지는 우리 학교 교육을 보다 내실 있고 바람직한 방향으로 이끌어 가기 위하여 2026학년도 학교 교육에 대한 만족도 및 2027학년도 교육계획 수립을 위한 것입니다.</p>
+                <p>선생님의 의견은 학교 교육 발전에 필요한 소중한 기초 자료로 활용되오니, 각 물음에 솔직하고 성실하게 응답하여 주시기 바랍니다.</p>
+                <p class="font-medium text-emerald-700">응답 내용은 비밀이 보장되며, 오직 우리 학교 교육의 질적 향상을 모색하기 위한 자료로 활용할 것을 약속드립니다.</p>
+                <div class="text-right font-semibold text-slate-700 pt-2">2026년 11월 30일<br><span class="text-emerald-800 text-lg">목포청호초등학교장</span></div>
+            </div>
+
+            <!-- Vision Box -->
+            <div class="mt-6 bg-emerald-50 rounded-xl p-5 border border-emerald-100">
+                <h3 class="font-bold text-emerald-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2"></i>우리 학교의 비전과 교육목표</h3>
+                <div class="bg-white p-3 rounded-lg text-center font-bold text-emerald-800 mb-4 text-sm md:text-base shadow-sm">
+                    비전: 함께 꿈꾸고 서로를 배려하며 자신의 능력을 키워가는 행복한 학교
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs md:text-sm">
+                    <div class="bg-white p-3 rounded-lg border border-emerald-100 shadow-sm">
+                        <span class="font-bold text-emerald-700 block mb-1">더새롬 교육목표</span>
+                        기초학력을 갖춰 생각을 깨우치는 학생
+                    </div>
+                    <div class="bg-white p-3 rounded-lg border border-emerald-100 shadow-sm">
+                        <span class="font-bold text-emerald-700 block mb-1">더나눔 교육목표</span>
+                        다른 사람을 배려하고 나눔을 실천하는 학생
+                    </div>
+                    <div class="bg-white p-3 rounded-lg border border-emerald-100 shadow-sm">
+                        <span class="font-bold text-emerald-700 block mb-1">더채움 교육목표</span>
+                        몸과 마음을 즐겁게하여 건강을 키워가는 학생
+                    </div>
+                    <div class="bg-white p-3 rounded-lg border border-emerald-100 shadow-sm">
+                        <span class="font-bold text-emerald-700 block mb-1">더큰꿈 교육목표</span>
+                        소질을 계발하여 자기 꿈을 가꾸는 학생
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Survey Form -->
+        <form id="surveyForm" onsubmit="submitSurvey(event)" class="space-y-6">
+            
+            <!-- Q1 -->
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
+                <label class="block font-bold text-slate-900 mb-3 text-base">1. 2026학년도 목포청호초등학교 교육활동 전반에 대한 만족도는 어떻습니까? <span class="text-rose-500">*</span></label>
+                <div class="grid grid-cols-2 sm:grid-cols-5 gap-2">
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="radio" name="q1" value="매우 만족" required class="text-emerald-600 focus:ring-emerald-500">
+                        <span class="text-sm">① 매우 만족</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="radio" name="q1" value="만족" class="text-emerald-600 focus:ring-emerald-500">
+                        <span class="text-sm">② 만족</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="radio" name="q1" value="보통" class="text-emerald-600 focus:ring-emerald-500">
+                        <span class="text-sm">③ 보통</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="radio" name="q1" value="불만족" class="text-emerald-600 focus:ring-emerald-500">
+                        <span class="text-sm">④ 불만족</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer col-span-2 sm:col-span-1">
+                        <input type="radio" name="q1" value="매우 불만족" class="text-emerald-600 focus:ring-emerald-500">
+                        <span class="text-sm">⑤ 매우 불만족</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Q2 -->
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
+                <label class="block font-bold text-slate-900 mb-1 text-base">2. 본교 교육활동 중에서 가장 중점을 두어야 하는 부분은 무엇이라고 생각합니까? <span class="text-rose-500">*</span></label>
+                <p class="text-xs text-slate-500 mb-3">(최대 2개 선택 가능)</p>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="checkbox" name="q2" value="기초·기본학력 신장" class="q2-chk text-emerald-600 rounded focus:ring-emerald-500" onclick="limitCheckbox(this, 2)">
+                        <span class="text-sm">① 기초·기본학력 신장</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="checkbox" name="q2" value="생활·인성교육" class="q2-chk text-emerald-600 rounded focus:ring-emerald-500" onclick="limitCheckbox(this, 2)">
+                        <span class="text-sm">② 생활·인성교육</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="checkbox" name="q2" value="진로교육" class="q2-chk text-emerald-600 rounded focus:ring-emerald-500" onclick="limitCheckbox(this, 2)">
+                        <span class="text-sm">③ 진로교육</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="checkbox" name="q2" value="안전교육" class="q2-chk text-emerald-600 rounded focus:ring-emerald-500" onclick="limitCheckbox(this, 2)">
+                        <span class="text-sm">④ 안전교육</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="checkbox" name="q2" value="예술교육" class="q2-chk text-emerald-600 rounded focus:ring-emerald-500" onclick="limitCheckbox(this, 2)">
+                        <span class="text-sm">⑤ 예술교육</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="checkbox" name="q2" value="환경교육" class="q2-chk text-emerald-600 rounded focus:ring-emerald-500" onclick="limitCheckbox(this, 2)">
+                        <span class="text-sm">⑥ 환경교육</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="checkbox" name="q2" value="놀이·체육활동 내실화" class="q2-chk text-emerald-600 rounded focus:ring-emerald-500" onclick="limitCheckbox(this, 2)">
+                        <span class="text-sm">⑦ 놀이·체육활동 내실화</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="checkbox" name="q2" value="창의성 신장" class="q2-chk text-emerald-600 rounded focus:ring-emerald-500" onclick="limitCheckbox(this, 2)">
+                        <span class="text-sm">⑧ 창의성 신장</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="checkbox" name="q2" value="기타" class="q2-chk text-emerald-600 rounded focus:ring-emerald-500" onclick="limitCheckbox(this, 2)">
+                        <span class="text-sm">⑨ 기타</span>
+                    </label>
+                </div>
+                <input type="text" name="q2_etc" placeholder="기타 의견을 입력해주세요" class="mt-3 w-full p-2.5 text-sm border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500">
+            </div>
+
+            <!-- Q3 -->
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
+                <label class="block font-bold text-slate-900 mb-1 text-base">3. 탄력적 교육과정 운영을 위해 시수를 감축해야 한다면 어느 과목을 줄여야 한다고 생각하십니까? <span class="text-rose-500">*</span></label>
+                <p class="text-xs text-slate-500 mb-3">※ 학교 교육과정 자율화 방침에 따라 교과 및 창의적 체험활동 수업 시수 20% 증감 가능(예체능 과목은 '증'만 가능)</p>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="radio" name="q3" value="없음(현행유지)" required class="text-emerald-600 focus:ring-emerald-500">
+                        <span class="text-sm">① 없음(현행유지)</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="radio" name="q3" value="국어" class="text-emerald-600 focus:ring-emerald-500">
+                        <span class="text-sm">② 국어</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="radio" name="q3" value="도덕" class="text-emerald-600 focus:ring-emerald-500">
+                        <span class="text-sm">③ 도덕</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="radio" name="q3" value="사회" class="text-emerald-600 focus:ring-emerald-500">
+                        <span class="text-sm">④ 사회</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="radio" name="q3" value="수학" class="text-emerald-600 focus:ring-emerald-500">
+                        <span class="text-sm">⑤ 수학</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="radio" name="q3" value="과학" class="text-emerald-600 focus:ring-emerald-500">
+                        <span class="text-sm">⑥ 과학</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="radio" name="q3" value="실과" class="text-emerald-600 focus:ring-emerald-500">
+                        <span class="text-sm">⑦ 실과</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="radio" name="q3" value="영어" class="text-emerald-600 focus:ring-emerald-500">
+                        <span class="text-sm">⑧ 영어</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="radio" name="q3" value="창의적 체험활동" class="text-emerald-600 focus:ring-emerald-500">
+                        <span class="text-sm">⑨ 창의적 체험활동</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Q4 -->
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
+                <label class="block font-bold text-slate-900 mb-1 text-base">4. 탄력적 교육과정 운영을 위해 시수를 증배해야 한다면 어느 과목을 늘려야 한다고 생각하십니까? <span class="text-rose-500">*</span></label>
+                <p class="text-xs text-slate-500 mb-3">※ 학교 교육과정 자율화 방침에 따라 교과 및 창의적 체험활동 수업 시수 20% 증감 가능</p>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="radio" name="q4" value="없음(현행유지)" required class="text-emerald-600 focus:ring-emerald-500">
+                        <span class="text-sm">① 없음(현행유지)</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="radio" name="q4" value="국어" class="text-emerald-600 focus:ring-emerald-500">
+                        <span class="text-sm">② 국어</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="radio" name="q4" value="도덕" class="text-emerald-600 focus:ring-emerald-500">
+                        <span class="text-sm">③ 도덕</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="radio" name="q4" value="사회" class="text-emerald-600 focus:ring-emerald-500">
+                        <span class="text-sm">④ 사회</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="radio" name="q4" value="수학" class="text-emerald-600 focus:ring-emerald-500">
+                        <span class="text-sm">⑤ 수학</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="radio" name="q4" value="과학" class="text-emerald-600 focus:ring-emerald-500">
+                        <span class="text-sm">⑥ 과학</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="radio" name="q4" value="체육" class="text-emerald-600 focus:ring-emerald-500">
+                        <span class="text-sm">⑦ 체육</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="radio" name="q4" value="음악" class="text-emerald-600 focus:ring-emerald-500">
+                        <span class="text-sm">⑧ 음악</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="radio" name="q4" value="미술" class="text-emerald-600 focus:ring-emerald-500">
+                        <span class="text-sm">⑨ 미술</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="radio" name="q4" value="실과" class="text-emerald-600 focus:ring-emerald-500">
+                        <span class="text-sm">⑩ 실과</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="radio" name="q4" value="영어" class="text-emerald-600 focus:ring-emerald-500">
+                        <span class="text-sm">⑪ 영어</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="radio" name="q4" value="창의적 체험활동" class="text-emerald-600 focus:ring-emerald-500">
+                        <span class="text-sm">⑫ 창의적 체험활동</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Q5 -->
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
+                <label class="block font-bold text-slate-900 mb-1 text-base">5. 교과 이외에 새로운 과목(활동)을 개설한다면 우리 학교(학년)만의 특색있는 과목(활동)으로 운영되기를 바라는 주제는 무엇인가요? <span class="text-rose-500">*</span></label>
+                <p class="text-xs text-slate-500 mb-3">(최대 2개 선택 가능)</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="checkbox" name="q5" value="독서인문교육" class="q5-chk text-emerald-600 rounded focus:ring-emerald-500" onclick="limitCheckbox(this, 2)">
+                        <span class="text-sm">독서인문교육</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="checkbox" name="q5" value="정보(SW, AI)교육" class="q5-chk text-emerald-600 rounded focus:ring-emerald-500" onclick="limitCheckbox(this, 2)">
+                        <span class="text-sm">정보(SW, AI)교육</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="checkbox" name="q5" value="인성교육" class="q5-chk text-emerald-600 rounded focus:ring-emerald-500" onclick="limitCheckbox(this, 2)">
+                        <span class="text-sm">인성교육</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="checkbox" name="q5" value="생태환경교육" class="q5-chk text-emerald-600 rounded focus:ring-emerald-500" onclick="limitCheckbox(this, 2)">
+                        <span class="text-sm">생태환경교육</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="checkbox" name="q5" value="민주시민교육" class="q5-chk text-emerald-600 rounded focus:ring-emerald-500" onclick="limitCheckbox(this, 2)">
+                        <span class="text-sm">민주시민교육</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="checkbox" name="q5" value="기초학력 보장 및 학력 향상 교육" class="q5-chk text-emerald-600 rounded focus:ring-emerald-500" onclick="limitCheckbox(this, 2)">
+                        <span class="text-sm">기초학력 보장 및 학력 향상 교육</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="checkbox" name="q5" value="진로연계교육" class="q5-chk text-emerald-600 rounded focus:ring-emerald-500" onclick="limitCheckbox(this, 2)">
+                        <span class="text-sm">진로연계교육</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="checkbox" name="q5" value="스포츠, 놀이교육" class="q5-chk text-emerald-600 rounded focus:ring-emerald-500" onclick="limitCheckbox(this, 2)">
+                        <span class="text-sm">스포츠, 놀이교육</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer sm:col-span-2">
+                        <input type="checkbox" name="q5" value="예술교육" class="q5-chk text-emerald-600 rounded focus:ring-emerald-500" onclick="limitCheckbox(this, 2)">
+                        <span class="text-sm">예술교육</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Q6 -->
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
+                <label class="block font-bold text-slate-900 mb-3 text-base">6. 2027학년도 수업일수는 어느 정도가 적당하다고 생각하십니까? <span class="text-rose-500">*</span></label>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="radio" name="q6" value="190일(최소수업일수)" required class="text-emerald-600 focus:ring-emerald-500">
+                        <span class="text-sm">① 190일(최소수업일수)</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="radio" name="q6" value="191일(현행 유지)" class="text-emerald-600 focus:ring-emerald-500">
+                        <span class="text-sm">② 191일(현행 유지)</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="radio" name="q6" value="192일" class="text-emerald-600 focus:ring-emerald-500">
+                        <span class="text-sm">③ 192일</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="radio" name="q6" value="193일" class="text-emerald-600 focus:ring-emerald-500">
+                        <span class="text-sm">④ 193일</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Q7 -->
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
+                <label class="block font-bold text-slate-900 mb-3 text-base">7. 우리 학교에 가장 적합한 방학 형태는 무엇이라고 생각하십니까? <span class="text-rose-500">*</span></label>
+                <div class="space-y-2.5">
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="radio" name="q7" value="1월 종·졸업식 후 겨울방학(현행 유지)" required class="text-emerald-600 focus:ring-emerald-500">
+                        <span class="text-sm">① 1월 종·졸업식 후 겨울방학(현행 유지)</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="radio" name="q7" value="12월 겨울방학 ~ 2월 개학, 종·졸업식" class="text-emerald-600 focus:ring-emerald-500">
+                        <span class="text-sm">② 12월 겨울방학 ~ 2월 개학, 종·졸업식</span>
+                    </label>
+                    <div class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50">
+                        <input type="radio" name="q7" value="기타" class="text-emerald-600 focus:ring-emerald-500">
+                        <span class="text-sm whitespace-nowrap">③ 기타:</span>
+                        <input type="text" name="q7_etc" placeholder="의견을 입력하세요" class="w-full p-1.5 text-sm border border-slate-300 rounded focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Q8 -->
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
+                <label class="block font-bold text-slate-900 mb-1 text-base">8. 2027학년도 5월 1일(토) 개교기념일과 5월 4일(화)을 학교장 재량휴업일로 설정하고자 합니다. 이에 대한 의견을 표시해 주세요. <span class="text-rose-500">*</span></label>
+                <div class="space-y-2.5 mt-3">
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="radio" name="q8" value="찬성" required class="text-emerald-600 focus:ring-emerald-500">
+                        <span class="text-sm">① 찬성</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="radio" name="q8" value="반대" class="text-emerald-600 focus:ring-emerald-500">
+                        <span class="text-sm">② 반대</span>
+                    </label>
+                    <div class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50">
+                        <input type="radio" name="q8" value="기타" class="text-emerald-600 focus:ring-emerald-500">
+                        <span class="text-sm whitespace-nowrap">③ 기타:</span>
+                        <input type="text" name="q8_etc" placeholder="의견을 입력하세요" class="w-full p-1.5 text-sm border border-slate-300 rounded focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Q9 -->
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
+                <label class="block font-bold text-slate-900 mb-1 text-base">9. 2027학년도 교과 전담 교사 시간으로 운영을 희망하는 과목은 무엇입니까? <span class="text-rose-500">*</span></label>
+                <p class="text-xs text-slate-500 mb-3">(2개 선택)</p>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="checkbox" name="q9" value="국어" class="q9-chk text-emerald-600 rounded focus:ring-emerald-500" onclick="limitCheckbox(this, 2)">
+                        <span class="text-sm">① 국어</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="checkbox" name="q9" value="도덕" class="q9-chk text-emerald-600 rounded focus:ring-emerald-500" onclick="limitCheckbox(this, 2)">
+                        <span class="text-sm">② 도덕</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="checkbox" name="q9" value="사회" class="q9-chk text-emerald-600 rounded focus:ring-emerald-500" onclick="limitCheckbox(this, 2)">
+                        <span class="text-sm">③ 사회</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="checkbox" name="q9" value="수학" class="q9-chk text-emerald-600 rounded focus:ring-emerald-500" onclick="limitCheckbox(this, 2)">
+                        <span class="text-sm">④ 수학</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="checkbox" name="q9" value="과학" class="q9-chk text-emerald-600 rounded focus:ring-emerald-500" onclick="limitCheckbox(this, 2)">
+                        <span class="text-sm">⑤ 과학</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="checkbox" name="q9" value="체육" class="q9-chk text-emerald-600 rounded focus:ring-emerald-500" onclick="limitCheckbox(this, 2)">
+                        <span class="text-sm">⑥ 체육</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="checkbox" name="q9" value="음악" class="q9-chk text-emerald-600 rounded focus:ring-emerald-500" onclick="limitCheckbox(this, 2)">
+                        <span class="text-sm">⑦ 음악</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="checkbox" name="q9" value="미술" class="q9-chk text-emerald-600 rounded focus:ring-emerald-500" onclick="limitCheckbox(this, 2)">
+                        <span class="text-sm">⑧ 미술</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="checkbox" name="q9" value="실과" class="q9-chk text-emerald-600 rounded focus:ring-emerald-500" onclick="limitCheckbox(this, 2)">
+                        <span class="text-sm">⑨ 실과</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="checkbox" name="q9" value="영어" class="q9-chk text-emerald-600 rounded focus:ring-emerald-500" onclick="limitCheckbox(this, 2)">
+                        <span class="text-sm">⑩ 영어</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer sm:col-span-2">
+                        <input type="checkbox" name="q9" value="기타" class="q9-chk text-emerald-600 rounded focus:ring-emerald-500" onclick="limitCheckbox(this, 2)">
+                        <span class="text-sm">⑪ 기타</span>
+                    </label>
+                </div>
+                <input type="text" name="q9_etc" placeholder="기타 과목을 입력해주세요" class="mt-3 w-full p-2.5 text-sm border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500">
+            </div>
+
+            <!-- Q10 (Table & Image integrated perfectly) -->
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
+                <label class="block font-bold text-slate-900 mb-2 text-base">10. 2026학년도 창의적 체험활동 영역 및 시간은 다음과 같습니다. 2027학년도 중점적으로 지도해야 하거나 수정·보완할 내용은 무엇이라고 생각하십니까? (영역 및 시수 증배·축소 포함)</label>
+                
+                <div class="my-4 overflow-x-auto border border-emerald-200 rounded-xl bg-white p-3 shadow-sm">
+                    <div class="text-xs font-bold text-emerald-800 mb-2 flex items-center">
+                        <i class="fa-solid fa-table mr-1.5"></i> [참고 자료] 2026학년도 창의적 체험활동 영역 및 시수 현황표
+                    </div>
+                    <table class="w-full text-center text-xs border-collapse border border-slate-300">
+                        <thead>
+                            <tr class="bg-emerald-700 text-white">
+                                <th rowspan="2" colspan="2" class="border border-emerald-600 p-1.5">영역</th>
+                                <th colspan="2" class="border border-emerald-600 p-1.5">1학년</th>
+                                <th colspan="2" class="border border-emerald-600 p-1.5">2학년</th>
+                                <th colspan="2" class="border border-emerald-600 p-1.5">3학년</th>
+                                <th colspan="2" class="border border-emerald-600 p-1.5">4학년</th>
+                                <th colspan="2" class="border border-emerald-600 p-1.5">5학년</th>
+                                <th colspan="2" class="border border-emerald-600 p-1.5">6학년</th>
+                            </tr>
+                            <tr class="bg-emerald-600 text-white">
+                                <th class="border border-emerald-500 p-1">1학기</th><th class="border border-emerald-500 p-1">2학기</th>
+                                <th class="border border-emerald-500 p-1">1학기</th><th class="border border-emerald-500 p-1">2학기</th>
+                                <th class="border border-emerald-500 p-1">1학기</th><th class="border border-emerald-500 p-1">2학기</th>
+                                <th class="border border-emerald-500 p-1">1학기</th><th class="border border-emerald-500 p-1">2학기</th>
+                                <th class="border border-emerald-500 p-1">1학기</th><th class="border border-emerald-500 p-1">2학기</th>
+                                <th class="border border-emerald-500 p-1">1학기</th><th class="border border-emerald-500 p-1">2학기</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-slate-700">
+                            <tr>
+                                <td rowspan="5" class="bg-emerald-50 font-semibold border border-slate-300 p-1 align-middle">자율·자치활동</td>
+                                <td class="bg-slate-50 text-left px-2 border border-slate-300 font-medium">자치활동</td>
+                                <td class="border border-slate-300">8</td><td class="border border-slate-300">9</td>
+                                <td class="border border-slate-300">5</td><td class="border border-slate-300">7</td>
+                                <td class="border border-slate-300">8</td><td class="border border-slate-300">14</td>
+                                <td class="border border-slate-300">10</td><td class="border border-slate-300">14</td>
+                                <td class="border border-slate-300">6</td><td class="border border-slate-300">12</td>
+                                <td class="border border-slate-300">7</td><td class="border border-slate-300">13</td>
+                            </tr>
+                            <tr>
+                                <td class="bg-slate-50 text-left px-2 border border-slate-300 font-medium">적응활동</td>
+                                <td class="border border-slate-300">34</td><td class="border border-slate-300">4</td>
+                                <td class="border border-slate-300">6</td><td class="border border-slate-300">4</td>
+                                <td class="border border-slate-300">8</td><td class="border border-slate-300">6</td>
+                                <td class="border border-slate-300">8</td><td class="border border-slate-300">6</td>
+                                <td class="border border-slate-300">5</td><td class="border border-slate-300">4</td>
+                                <td class="border border-slate-300">8</td><td class="border border-slate-300">6</td>
+                            </tr>
+                            <tr>
+                                <td rowspan="3" class="bg-slate-50 text-left px-2 border border-slate-300 font-medium">창의주제활동</td>
+                                <td class="border border-slate-300">12</td><td class="border border-slate-300">12</td>
+                                <td class="border border-slate-300">12</td><td class="border border-slate-300">12</td>
+                                <td class="bg-slate-200 border border-slate-300" colspan="2">-</td>
+                                <td class="bg-slate-200 border border-slate-300" colspan="2">-</td>
+                                <td class="bg-slate-200 border border-slate-300" colspan="2">-</td>
+                                <td class="bg-slate-200 border border-slate-300" colspan="2">-</td>
+                            </tr>
+                            <tr>
+                                <td class="border border-slate-300">15</td><td class="border border-slate-300">13</td>
+                                <td class="border border-slate-300">13</td><td class="border border-slate-300">13</td>
+                                <td class="border border-slate-300">0</td><td class="border border-slate-300">14</td>
+                                <td class="border border-slate-300">0</td><td class="border border-slate-300">14</td>
+                                <td class="border border-slate-300">0</td><td class="border border-slate-300">14</td>
+                                <td class="border border-slate-300">0</td><td class="border border-slate-300">14</td>
+                            </tr>
+                            <tr>
+                                <td class="border border-slate-300">2</td><td class="border border-slate-300">2</td>
+                                <td class="border border-slate-300">2</td><td class="border border-slate-300">2</td>
+                                <td class="border border-slate-300">3</td><td class="border border-slate-300">3</td>
+                                <td class="border border-slate-300">3</td><td class="border border-slate-300">3</td>
+                                <td class="border border-slate-300">8</td><td class="border border-slate-300">9</td>
+                                <td class="border border-slate-300">4</td><td class="border border-slate-300">4</td>
+                            </tr>
+                            <tr class="bg-emerald-100 font-bold">
+                                <td colspan="2" class="border border-emerald-300 p-1 text-left px-2">자율·자치활동 계</td>
+                                <td class="border border-emerald-300">71</td><td class="border border-emerald-300">40</td>
+                                <td class="border border-emerald-300">38</td><td class="border border-emerald-300">38</td>
+                                <td class="border border-emerald-300">19</td><td class="border border-emerald-300">37</td>
+                                <td class="border border-emerald-300">21</td><td class="border border-emerald-300">37</td>
+                                <td class="border border-emerald-300">19</td><td class="border border-emerald-300">39</td>
+                                <td class="border border-emerald-300">19</td><td class="border border-emerald-300">37</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" class="bg-slate-50 text-left px-2 border border-slate-300 font-medium">동아리활동</td>
+                                <td class="border border-slate-300">11</td><td class="border border-slate-300">11</td>
+                                <td class="border border-slate-300">12</td><td class="border border-slate-300">10</td>
+                                <td class="border border-slate-300">10</td><td class="border border-slate-300">10</td>
+                                <td class="border border-slate-300">8</td><td class="border border-slate-300">10</td>
+                                <td class="border border-slate-300">8</td><td class="border border-slate-300">10</td>
+                                <td class="border border-slate-300">11</td><td class="border border-slate-300">9</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" class="bg-slate-50 text-left px-2 border border-slate-300 font-medium">진로활동</td>
+                                <td class="border border-slate-300">2</td><td class="border border-slate-300">1</td>
+                                <td class="border border-slate-300">2</td><td class="border border-slate-300">2</td>
+                                <td class="border border-slate-300">3</td><td class="border border-slate-300">3</td>
+                                <td class="border border-slate-300">3</td><td class="border border-slate-300">3</td>
+                                <td class="border border-slate-300">5</td><td class="border border-slate-300">1</td>
+                                <td class="border border-slate-300">2</td><td class="border border-slate-300">4</td>
+                            </tr>
+                            <tr class="bg-emerald-100 font-bold">
+                                <td colspan="2" class="border border-emerald-300 p-1 text-left px-2">소계</td>
+                                <td class="border border-emerald-300">84</td><td class="border border-emerald-300">52</td>
+                                <td class="border border-emerald-300">90</td><td class="border border-emerald-300">88</td>
+                                <td class="border border-emerald-300">32</td><td class="border border-emerald-300">50</td>
+                                <td class="border border-emerald-300">32</td><td class="border border-emerald-300">50</td>
+                                <td class="border border-emerald-300">32</td><td class="border border-emerald-300">50</td>
+                                <td class="border border-emerald-300">32</td><td class="border border-emerald-300">50</td>
+                            </tr>
+                            <tr class="bg-emerald-200 font-bold">
+                                <td colspan="2" class="border border-emerald-400 p-1 text-left px-2">학년별 총계</td>
+                                <td colspan="2" class="border border-emerald-400">136</td>
+                                <td colspan="2" class="border border-emerald-400">102</td>
+                                <td colspan="2" class="border border-emerald-400">82</td>
+                                <td colspan="2" class="border border-emerald-400">82</td>
+                                <td colspan="2" class="border border-emerald-400">82</td>
+                                <td colspan="2" class="border border-emerald-400">82</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <textarea name="q10" rows="3" placeholder="수정 및 보완할 내용, 중점 지도 사항을 자유롭게 적어주세요." class="w-full p-3 text-sm border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"></textarea>
+            </div>
+
+            <!-- Q11 -->
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
+                <label class="block font-bold text-slate-900 mb-1 text-base">11. 2026학년도 과정중심평가 결과는 학기말 생활통지표와 함께 연 2회 자녀의 성장과 발달 정도를 가정에 안내하고 있습니다. 2027학년도 평가 안내 및 통지 방법에 대해 어떻게 생각하십니까? <span class="text-rose-500">*</span></label>
+                <p class="text-xs text-slate-500 mb-3">※ 올해와 같게 유지하는 안 외에 다른 의견이 있으실 경우 기타란에 자유롭게 적어주시기 바랍니다.</p>
+                <div class="space-y-2.5">
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="radio" name="q11" value="현행 유지" required class="text-emerald-600 focus:ring-emerald-500">
+                        <span class="text-sm">① 현행 유지</span>
+                    </label>
+                    <div class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50">
+                        <input type="radio" name="q11" value="기타" class="text-emerald-600 focus:ring-emerald-500">
+                        <span class="text-sm whitespace-nowrap">② 기타:</span>
+                        <input type="text" name="q11_etc" placeholder="의견을 입력하세요" class="w-full p-1.5 text-sm border border-slate-300 rounded focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Q12 -->
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
+                <label class="block font-bold text-slate-900 mb-1 text-base">12. 2027학년도에 실시했으면 하는 '학교자율사업선택제' 선택 과제를 세 가지 선택해 주세요. <span class="text-rose-500">*</span></label>
+                <p class="text-xs text-slate-500 mb-3">(3개 선택)</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="checkbox" name="q12" value="기초학력제고 프로그램 운영" class="q12-chk text-emerald-600 rounded focus:ring-emerald-500" onclick="limitCheckbox(this, 3)">
+                        <span class="text-sm">기초학력제고 프로그램 운영</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="checkbox" name="q12" value="기후변화 환경교육과정 운영" class="q12-chk text-emerald-600 rounded focus:ring-emerald-500" onclick="limitCheckbox(this, 3)">
+                        <span class="text-sm">기후변화 환경교육과정 운영</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="checkbox" name="q12" value="독서인문교육 프로그램 운영" class="q12-chk text-emerald-600 rounded focus:ring-emerald-500" onclick="limitCheckbox(this, 3)">
+                        <span class="text-sm">독서인문교육 프로그램 운영</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="checkbox" name="q12" value="예술체험 교육활동 운영" class="q12-chk text-emerald-600 rounded focus:ring-emerald-500" onclick="limitCheckbox(this, 3)">
+                        <span class="text-sm">예술체험 교육활동 운영</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="checkbox" name="q12" value="인성 키움·나눔 프로그램 운영" class="q12-chk text-emerald-600 rounded focus:ring-emerald-500" onclick="limitCheckbox(this, 3)">
+                        <span class="text-sm">인성 키움·나눔 프로그램 운영</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="checkbox" name="q12" value="민주시민교육 프로그램 운영" class="q12-chk text-emerald-600 rounded focus:ring-emerald-500" onclick="limitCheckbox(this, 3)">
+                        <span class="text-sm">민주시민교육 프로그램 운영</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="checkbox" name="q12" value="정보(SW·AI)교육활동 운영" class="q12-chk text-emerald-600 rounded focus:ring-emerald-500" onclick="limitCheckbox(this, 3)">
+                        <span class="text-sm">정보(SW·AI)교육활동 운영</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="checkbox" name="q12" value="수학교육 활성화 프로그램 운영" class="q12-chk text-emerald-600 rounded focus:ring-emerald-500" onclick="limitCheckbox(this, 3)">
+                        <span class="text-sm">수학교육 활성화 프로그램 운영</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="checkbox" name="q12" value="소통과 공감의 학교폭력예방교육" class="q12-chk text-emerald-600 rounded focus:ring-emerald-500" onclick="limitCheckbox(this, 3)">
+                        <span class="text-sm">소통과 공감의 학교폭력예방교육</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer sm:col-span-2">
+                        <input type="checkbox" name="q12" value="마을 연계 교육과정 운영" class="q12-chk text-emerald-600 rounded focus:ring-emerald-500" onclick="limitCheckbox(this, 3)">
+                        <span class="text-sm">마을 연계 교육과정 운영</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Q13 -->
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
+                <label class="block font-bold text-slate-900 mb-3 text-base">13. 우리 학교 운동회는 운동장에서 전교생이 함께 참여합니다. 이에 대해 어떻게 생각합니까? <span class="text-rose-500">*</span></label>
+                <div class="grid grid-cols-2 sm:grid-cols-5 gap-2 mb-3">
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="radio" name="q13" value="매우 만족" required class="text-emerald-600 focus:ring-emerald-500">
+                        <span class="text-sm">① 매우 만족</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="radio" name="q13" value="만족" class="text-emerald-600 focus:ring-emerald-500">
+                        <span class="text-sm">② 만족</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="radio" name="q13" value="보통" class="text-emerald-600 focus:ring-emerald-500">
+                        <span class="text-sm">③ 보통</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="radio" name="q13" value="불만족" class="text-emerald-600 focus:ring-emerald-500">
+                        <span class="text-sm">④ 불만족</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer col-span-2 sm:col-span-1">
+                        <input type="radio" name="q13" value="매우 불만족" class="text-emerald-600 focus:ring-emerald-500">
+                        <span class="text-sm">⑤ 매우 불만족</span>
+                    </label>
+                </div>
+                <input type="text" name="q13_1" placeholder="13-1. 운동회 운영 방식에 대해 반영할 사항이 있다면 말씀해 주세요." class="w-full p-3 text-sm border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500">
+            </div>
+
+            <!-- Q14 -->
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
+                <label class="block font-bold text-slate-900 mb-3 text-base">14. 우리 학교 성과발표회는 각 학급별로 운영됩니다. 현 운영 방식에 어떻게 생각하십니까? <span class="text-rose-500">*</span></label>
+                <div class="grid grid-cols-2 sm:grid-cols-5 gap-2 mb-3">
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="radio" name="q14" value="매우 만족" required class="text-emerald-600 focus:ring-emerald-500">
+                        <span class="text-sm">① 매우 만족</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="radio" name="q14" value="만족" class="text-emerald-600 focus:ring-emerald-500">
+                        <span class="text-sm">② 만족</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="radio" name="q14" value="보통" class="text-emerald-600 focus:ring-emerald-500">
+                        <span class="text-sm">③ 보통</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="radio" name="q14" value="불만족" class="text-emerald-600 focus:ring-emerald-500">
+                        <span class="text-sm">④ 불만족</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer col-span-2 sm:col-span-1">
+                        <input type="radio" name="q14" value="매우 불만족" class="text-emerald-600 focus:ring-emerald-500">
+                        <span class="text-sm">⑤ 매우 불만족</span>
+                    </label>
+                </div>
+                <input type="text" name="q14_1" placeholder="14-1. 성과발표회 운영 방식에 대해 반영할 사항이 있다면 말씀해 주세요." class="w-full p-3 text-sm border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500">
+            </div>
+
+            <!-- Q15 -->
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
+                <label class="block font-bold text-slate-900 mb-3 text-base">15. 우리 학교 학년별 현장체험학습에 대해 어떻게 생각하십니까? <span class="text-rose-500">*</span></label>
+                <div class="grid grid-cols-2 sm:grid-cols-5 gap-2 mb-3">
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="radio" name="q15" value="매우 만족" required class="text-emerald-600 focus:ring-emerald-500">
+                        <span class="text-sm">① 매우 만족</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="radio" name="q15" value="만족" class="text-emerald-600 focus:ring-emerald-500">
+                        <span class="text-sm">② 만족</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="radio" name="q15" value="보통" class="text-emerald-600 focus:ring-emerald-500">
+                        <span class="text-sm">③ 보통</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="radio" name="q15" value="불만족" class="text-emerald-600 focus:ring-emerald-500">
+                        <span class="text-sm">④ 불만족</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer col-span-2 sm:col-span-1">
+                        <input type="radio" name="q15" value="매우 불만족" class="text-emerald-600 focus:ring-emerald-500">
+                        <span class="text-sm">⑤ 매우 불만족</span>
+                    </label>
+                </div>
+                <input type="text" name="q15_1" placeholder="15-1. 현장체험학습 운영 방식에 대해 반영할 사항이 있다면 말씀해 주세요." class="w-full p-3 text-sm border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500">
+            </div>
+
+            <!-- Q16 -->
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
+                <label class="block font-bold text-slate-900 mb-1 text-base">16. 2027학년도 교원 컨설팅 주제로 바라는 분야는 무엇입니까? <span class="text-rose-500">*</span></label>
+                <p class="text-xs text-slate-500 mb-3">(최대 3개 선택 가능)</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="checkbox" name="q16" value="2022 개정교육과정" class="q16-chk text-emerald-600 rounded focus:ring-emerald-500" onclick="limitCheckbox(this, 3)">
+                        <span class="text-sm">① 2022 개정교육과정</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="checkbox" name="q16" value="학교자율시간" class="q16-chk text-emerald-600 rounded focus:ring-emerald-500" onclick="limitCheckbox(this, 3)">
+                        <span class="text-sm">② 학교자율시간</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="checkbox" name="q16" value="교육과정 재구성" class="q16-chk text-emerald-600 rounded focus:ring-emerald-500" onclick="limitCheckbox(this, 3)">
+                        <span class="text-sm">③ 교육과정 재구성</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="checkbox" name="q16" value="과정중심평가" class="q16-chk text-emerald-600 rounded focus:ring-emerald-500" onclick="limitCheckbox(this, 3)">
+                        <span class="text-sm">④ 과정중심평가</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="checkbox" name="q16" value="디지털AI활용(소양)교육" class="q16-chk text-emerald-600 rounded focus:ring-emerald-500" onclick="limitCheckbox(this, 3)">
+                        <span class="text-sm">⑤ 디지털AI활용(소양)교육</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="checkbox" name="q16" value="독서인문교육" class="q16-chk text-emerald-600 rounded focus:ring-emerald-500" onclick="limitCheckbox(this, 3)">
+                        <span class="text-sm">⑥ 독서인문교육</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="checkbox" name="q16" value="학급경영(학습, 생활)" class="q16-chk text-emerald-600 rounded focus:ring-emerald-500" onclick="limitCheckbox(this, 3)">
+                        <span class="text-sm">⑦ 학급경영(학습, 생활)</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="checkbox" name="q16" value="생태환경교육" class="q16-chk text-emerald-600 rounded focus:ring-emerald-500" onclick="limitCheckbox(this, 3)">
+                        <span class="text-sm">⑧ 생태환경교육</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="checkbox" name="q16" value="예술교육" class="q16-chk text-emerald-600 rounded focus:ring-emerald-500" onclick="limitCheckbox(this, 3)">
+                        <span class="text-sm">⑨ 예술교육</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="checkbox" name="q16" value="회복적 생활교육" class="q16-chk text-emerald-600 rounded focus:ring-emerald-500" onclick="limitCheckbox(this, 3)">
+                        <span class="text-sm">⑩ 회복적 생활교육</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer sm:col-span-2">
+                        <input type="checkbox" name="q16" value="기타" class="q16-chk text-emerald-600 rounded focus:ring-emerald-500" onclick="limitCheckbox(this, 3)">
+                        <span class="text-sm">⑪ 기타</span>
+                    </label>
+                </div>
+                <input type="text" name="q16_etc" placeholder="기타 분야를 입력해주세요" class="mt-3 w-full p-2.5 text-sm border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500">
+            </div>
+
+            <!-- Q17 -->
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
+                <label class="block font-bold text-slate-900 mb-3 text-base">17. 2027학년도 우리 학교 예산 집행 중 가장 우선해서 투입되어야 할 부분은 무엇이라고 생각하십니까? <span class="text-rose-500">*</span></label>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="radio" name="q17" value="정보기기 수리 및 확충(컴퓨터, 프린터 등)" required class="text-emerald-600 focus:ring-emerald-500">
+                        <span class="text-sm">① 정보기기 수리 및 확충(컴퓨터, 프린터 등)</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="radio" name="q17" value="교수·학습자료 구입" class="text-emerald-600 focus:ring-emerald-500">
+                        <span class="text-sm">② 교수·학습자료 구입</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="radio" name="q17" value="교육 시설과 설비 확충" class="text-emerald-600 focus:ring-emerald-500">
+                        <span class="text-sm">③ 교육 시설과 설비 확충</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="radio" name="q17" value="창의적 체험활동 지원" class="text-emerald-600 focus:ring-emerald-500">
+                        <span class="text-sm">④ 창의적 체험활동 지원</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="radio" name="q17" value="학생 복지, 편의시설 확충" class="text-emerald-600 focus:ring-emerald-500">
+                        <span class="text-sm">⑤ 학생 복지, 편의시설 확충</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="radio" name="q17" value="교직원 복지시설 확충" class="text-emerald-600 focus:ring-emerald-500">
+                        <span class="text-sm">⑥ 교직원 복지시설 확충</span>
+                    </label>
+                    <div class="flex items-center space-x-2 p-3 rounded-lg border border-slate-200 hover:bg-slate-50 sm:col-span-2">
+                        <input type="radio" name="q17" value="기타" class="text-emerald-600 focus:ring-emerald-500">
+                        <span class="text-sm whitespace-nowrap">⑦ 기타:</span>
+                        <input type="text" name="q17_etc" placeholder="의견을 입력하세요" class="w-full p-1.5 text-sm border border-slate-300 rounded focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Q18 -->
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
+                <label class="block font-bold text-slate-900 mb-2 text-base">18. 우리학교 교육과정 운영 전반에 걸쳐서 하고 싶은 말씀이나 건의사항을 적어주시기 바랍니다.</label>
+                <textarea name="q18" rows="4" placeholder="자유롭게 건의사항을 작성해 주세요." class="w-full p-3 text-sm border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"></textarea>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="text-center py-6">
+                <button type="submit" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-10 py-4 rounded-xl shadow-lg transition transform hover:-translate-y-0.5 text-base md:text-lg flex items-center justify-center mx-auto space-x-2">
+                    <i class="fa-solid fa-paper-plane"></i>
+                    <span>2027 교육계획 수립 설문조사 최종 제출하기</span>
+                </button>
+            </div>
+        </form>
+    </main>
+
+    <!-- Password Prompt Modal -->
+    <div id="passwordModal" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-50 flex items-center justify-center hidden">
+        <div class="bg-white rounded-2xl p-6 md:p-8 max-w-sm w-full mx-4 shadow-2xl border border-slate-100">
+            <div class="text-center mb-4">
+                <div class="bg-emerald-100 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3 text-emerald-600 text-xl">
+                    <i class="fa-solid fa-lock"></i>
+                </div>
+                <h3 class="font-bold text-lg text-slate-900">전문가관리자 인증</h3>
+                <p class="text-xs text-slate-500 mt-1">비밀번호를 입력하여 통계를 확인하세요.</p>
+            </div>
+            <form onsubmit="verifyPassword(event)">
+                <input type="password" id="adminPasswordInput" placeholder="비밀번호 입력" required class="w-full p-3 border border-slate-300 rounded-xl mb-4 text-center text-lg tracking-widest focus:outline-none focus:ring-2 focus:ring-emerald-500" autocomplete="current-password">
+                <div class="flex space-x-2">
+                    <button type="button" onclick="closePasswordModal()" class="flex-1 bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium py-2.5 rounded-xl transition">취소</button>
+                    <button type="submit" class="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white font-medium py-2.5 rounded-xl transition">확인</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Admin Panel Modal -->
+    <div id="adminModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4">
+        <div class="bg-white rounded-2xl max-w-5xl w-full max-h-[90vh] flex flex-col shadow-2xl overflow-hidden border border-slate-100">
+            <div class="bg-emerald-700 text-white px-6 py-4 flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <i class="fa-solid fa-chart-pie text-xl"></i>
+                    <h2 class="font-bold text-lg">전문가관리 - 설문조사 통계 및 그래프 현황</h2>
+                </div>
+                <div class="flex items-center space-x-3">
+                    <button onclick="clearAllData()" class="bg-rose-600 hover:bg-rose-700 text-white text-xs px-3 py-1.5 rounded-lg transition">설문 데이터 초기화</button>
+                    <button onclick="closeAdminModal()" class="text-white hover:text-slate-200 text-xl font-bold px-2">&times;</button>
+                </div>
+            </div>
+            
+            <div class="p-6 overflow-y-auto flex-grow space-y-6 bg-slate-50">
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200 text-center">
+                        <span class="text-xs text-slate-500 block mb-1">총 응답 교원 수</span>
+                        <span id="totalResponsesCount" class="text-3xl font-bold text-emerald-600">0</span>
+                        <span class="text-xs text-slate-400">명</span>
+                    </div>
+                    <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200 sm:col-span-2 flex items-center justify-around">
+                        <div class="text-center">
+                            <span class="text-xs text-slate-500 block mb-1">보안 상태 및 시각화 지원</span>
+                            <span class="text-emerald-600 font-bold text-sm bg-emerald-50 px-3 py-1 rounded-full"><i class="fa-solid fa-chart-bar mr-1"></i> 그래프 & 상세 표 모드 활성화됨</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Statistics Container -->
+                <div id="statsContainer" class="space-y-6">
+                    <!-- Populated dynamically via JS -->
+                </div>
+            </div>
+            <div class="bg-slate-100 px-6 py-3 border-t border-slate-200 text-right">
+                <button onclick="closeAdminModal()" class="bg-slate-700 hover:bg-slate-800 text-white px-4 py-2 rounded-xl text-sm font-medium transition">닫기</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Alert Modal -->
+    <div id="alertModal" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-50 flex items-center justify-center hidden">
+        <div class="bg-white rounded-2xl p-6 max-w-sm w-full mx-4 shadow-2xl text-center border border-slate-100">
+            <div id="alertIcon" class="w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3 text-xl"></div>
+            <h3 id="alertTitle" class="font-bold text-lg text-slate-900 mb-1">알림</h3>
+            <p id="alertMessage" class="text-sm text-slate-600 mb-5 whitespace-pre-line"></p>
+            <button onclick="closeAlertModal()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-medium py-2.5 rounded-xl transition">확인</button>
+        </div>
+    </div>
+
+    <footer class="bg-white border-t border-slate-200 py-6 text-center text-xs text-slate-500 mt-auto">
+        <p>목포청호초등학교 | 2027학년도 교육계획 수립 설문조사 시스템</p>
+    </footer>
+
+    <script>
+        // Checkbox limitation helper
+        function limitCheckbox(element, maxLimit) {
+            const name = element.name;
+            const checkboxes = document.querySelectorAll(`input[name="${name}"]:checked`);
+            if (checkboxes.length > maxLimit) {
+                element.checked = false;
+                showAlert('알림', `이 문항은 최대 ${maxLimit}개까지만 선택할 수 있습니다.`);
+            }
+        }
+
+        // Custom Modal Alert
+        function showAlert(title, message, isSuccess = true) {
+            const modal = document.getElementById('alertModal');
+            const titleEl = document.getElementById('alertTitle');
+            const msgEl = document.getElementById('alertMessage');
+            const iconEl = document.getElementById('alertIcon');
+
+            titleEl.textContent = title;
+            msgEl.textContent = message;
+
+            if (isSuccess) {
+                iconEl.className = "w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3 text-xl bg-emerald-100 text-emerald-600";
+                iconEl.innerHTML = '<i class="fa-solid fa-check"></i>';
+            } else {
+                iconEl.className = "w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3 text-xl bg-rose-100 text-rose-600";
+                iconEl.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i>';
+            }
+
+            modal.classList.remove('hidden');
+        }
+
+        function closeAlertModal() {
+            document.getElementById('alertModal').classList.add('hidden');
+        }
+
+        // Admin Modal Functions
+        function openAdminModal() {
+            document.getElementById('passwordModal').classList.remove('hidden');
+            document.getElementById('adminPasswordInput').value = '';
+            document.getElementById('adminPasswordInput').focus();
+        }
+
+        function closePasswordModal() {
+            document.getElementById('passwordModal').classList.add('hidden');
+        }
+
+        function verifyPassword(event) {
+            event.preventDefault();
+            const pwd = document.getElementById('adminPasswordInput').value;
+            // Simple default admin password, e.g., '1234' or school year '2027'
+            if (pwd === '1234' || pwd === '2027') {
+                closePasswordModal();
+                document.getElementById('adminModal').classList.remove('hidden');
+                loadStatistics();
+            } else {
+                showAlert('인증 실패', '비밀번호가 올바르지 않습니다.', false);
+                document.getElementById('adminPasswordInput').value = '';
+            }
+        }
+
+        function closeAdminModal() {
+            document.getElementById('adminModal').classList.add('hidden');
+        }
+
+        // Survey Form Submission
+        function submitSurvey(event) {
+            event.preventDefault();
+            const form = document.getElementById('surveyForm');
+            const formData = new FormData(form);
+            const data = {};
+
+            for (let [key, value] of formData.entries()) {
+                if (data[key]) {
+                    if (!Array.isArray(data[key])) {
+                        data[key] = [data[key]];
+                    }
+                    data[key].push(value);
+                } else {
+                    data[key] = value;
+                }
+            }
+
+            // Save to localStorage
+            const responses = JSON.parse(localStorage.getItem('chungho_teacher_survey_2027') || '[]');
+            responses.push({
+                date: new Date().toISOString(),
+                data: data
+            });
+            localStorage.setItem('chungho_teacher_survey_2027', JSON.stringify(responses));
+
+            showAlert('제출 완료', '2027학년도 교육계획 수립을 위한 설문조사가 성공적으로 제출되었습니다.\n소중한 의견 감사합니다!');
+            form.reset();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Load and Render Statistics for all questions with Graph & Table view options
+        function loadStatistics() {
+            const responses = JSON.parse(localStorage.getItem('chungho_teacher_survey_2027') || '[]');
+            document.getElementById('totalResponsesCount').textContent = responses.length;
+
+            const container = document.getElementById('statsContainer');
+            container.innerHTML = '';
+
+            if (responses.length === 0) {
+                container.innerHTML = '<div class="bg-white p-8 rounded-xl text-center text-slate-500 border border-slate-200">아직 제출된 응답이 없습니다.</div>';
+                return;
+            }
+
+            // Questions mapping for display
+            const questions = [
+                { id: 'q1', title: '1. 2026학년도 목포청호초등학교 교육활동 전반에 대한 만족도' },
+                { id: 'q2', title: '2. 가장 중점을 두어야 하는 부분 (복수선택)' },
+                { id: 'q3', title: '3. 시수 감축 희망 과목' },
+                { id: 'q4', title: '4. 시수 증배 희망 과목' },
+                { id: 'q5', title: '5. 특색있는 과목(활동) 개설 희망 주제 (복수선택)' },
+                { id: 'q6', title: '6. 2027학년도 수업일수 적정성' },
+                { id: 'q7', title: '7. 가장 적합한 방학 형태' },
+                { id: 'q8', title: '8. 5월 4일 학교장 재량휴업일 설정 의견' },
+                { id: 'q9', title: '9. 교과 전담 교사 시간 운영 희망 과목 (2개)' },
+                { id: 'q10', title: '10. 창의적 체험활동 영역 수정·보완 및 중점 지도 내용' },
+                { id: 'q11', title: '11. 과정중심평가 안내 및 통지 방법 의견' },
+                { id: 'q12', title: '12. 학교자율사업선택제 선택 과제 (3개)' },
+                { id: 'q13', title: '13. 운동회 운영 방식 만족도' },
+                { id: 'q13_1', title: '13-1. 운동회 운영 반영 사항 의견' },
+                { id: 'q14', title: '14. 성과발표회 운영 방식 만족도' },
+                { id: 'q14_1', title: '14-1. 성과발표회 운영 반영 사항 의견' },
+                { id: 'q15', title: '15. 학년별 현장체험학습 만족도' },
+                { id: 'q15_1', title: '15-1. 현장체험학습 운영 반영 사항 의견' },
+                { id: 'q16', title: '16. 교원 컨설팅 주제 희망 분야 (최대 3개)' },
+                { id: 'q17', title: '17. 예산 집행 우선 투입 분야' },
+                { id: 'q18', title: '18. 교육과정 운영 전반 건의사항' }
+            ];
+
+            questions.forEach((q, index) => {
+                const card = document.createElement('div');
+                card.className = 'bg-white p-5 rounded-xl shadow-sm border border-slate-200';
+                
+                const counts = {};
+                const textList = [];
+
+                responses.forEach(r => {
+                    let val = r.data[q.id];
+                    if (val !== undefined && val !== '') {
+                        if (Array.isArray(val)) {
+                            val.forEach(v => {
+                                counts[v] = (counts[v] || 0) + 1;
+                            });
+                        } else if (typeof val === 'string' && (q.id.includes('etc') || q.id.includes('_1') || q.id === 'q10' || q.id === 'q18')) {
+                            textList.push(val);
+                        } else {
+                            counts[val] = (counts[val] || 0) + 1;
+                        }
+                    }
+                    if (r.data[q.id + '_etc']) {
+                        textList.push(r.data[q.id + '_etc']);
+                    }
+                });
+
+                let html = `
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-3 border-b pb-2 gap-2">
+                        <h4 class="font-bold text-slate-800 text-sm md:text-base">${q.title}</h4>
+                        <div class="flex bg-slate-100 p-1 rounded-lg text-xs self-start sm:self-auto">
+                            <button onclick="toggleView(${index}, 'graph')" id="btn-graph-${index}" class="px-2.5 py-1 rounded-md font-medium bg-emerald-600 text-white shadow-sm transition">그래프</button>
+                            <button onclick="toggleView(${index}, 'table')" id="btn-table-${index}" class="px-2.5 py-1 rounded-md font-medium text-slate-600 hover:text-slate-900 transition">표 보기</button>
+                        </div>
+                    </div>
+                `;
+
+                // Graph View Container
+                html += `<div id="view-graph-${index}" class="space-y-2 mb-3">`;
+                if (Object.keys(counts).length > 0) {
+                    const totalEntries = responses.length;
+                    for (let [opt, cnt] of Object.entries(counts)) {
+                        const percent = Math.round((cnt / totalEntries) * 100);
+                        html += `
+                            <div>
+                                <div class="flex justify-between text-xs text-slate-600 mb-1">
+                                    <span class="font-medium">${opt}</span>
+                                    <span>${cnt}명 (${percent}%)</span>
+                                </div>
+                                <div class="w-full bg-slate-100 h-2.5 rounded-full overflow-hidden shadow-inner">
+                                    <div class="bg-emerald-600 h-full rounded-full transition-all duration-500" style="width: ${percent}%"></div>
+                                </div>
+                            </div>
+                        `;
+                    }
+                } else {
+                    html += '<p class="text-xs text-slate-400 italic">객관식 응답 데이터가 없습니다.</p>';
+                }
+                html += `</div>`;
+
+                // Table View Container (Hidden by default)
+                html += `<div id="view-table-${index}" class="hidden mb-3 overflow-x-auto">`;
+                if (Object.keys(counts).length > 0) {
+                    html += `
+                        <table class="w-full text-xs text-left border-collapse border border-slate-200">
+                            <thead>
+                                <tr class="bg-slate-100 text-slate-700">
+                                    <th class="border border-slate-200 p-2">선택지 / 응답 항목</th>
+                                    <th class="border border-slate-200 p-2 text-center w-24">응답 인원</th>
+                                    <th class="border border-slate-200 p-2 text-center w-24">비율 (%)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                    `;
+                    const totalEntries = responses.length;
+                    for (let [opt, cnt] of Object.entries(counts)) {
+                        const percent = Math.round((cnt / totalEntries) * 100);
+                        html += `
+                            <tr>
+                                <td class="border border-slate-200 p-2 font-medium text-slate-800">${opt}</td>
+                                <td class="border border-slate-200 p-2 text-center text-slate-600">${cnt}명</td>
+                                <td class="border border-slate-200 p-2 text-center text-emerald-600 font-bold">${percent}%</td>
+                            </tr>
+                        `;
+                    }
+                    html += `</tbody></table>`;
+                } else {
+                    html += '<p class="text-xs text-slate-400 italic">표로 표시할 객관식 데이터가 없습니다.</p>';
+                }
+                html += `</div>`;
+
+                // Text / Subjective opinions list
+                if (textList.length > 0) {
+                    html += '<div class="mt-3 pt-3 border-t border-slate-100"><span class="text-xs font-semibold text-slate-500 block mb-2">서술형 / 기타 의견 모음:</span>';
+                    html += '<div class="space-y-1.5 max-h-32 overflow-y-auto bg-slate-50 p-3 rounded-lg">';
+                    textList.forEach(txt => {
+                        html += `<div class="text-xs text-slate-700 bg-white p-2 rounded border border-slate-200">"${txt}"</div>`;
+                    });
+                    html += '</div></div>';
+                }
+
+                card.innerHTML = html;
+                container.appendChild(card);
+            });
+        }
+
+        // Toggle between graph view and table view in admin modal
+        function toggleView(index, type) {
+            const graphView = document.getElementById(`view-graph-${index}`);
+            const tableView = document.getElementById(`view-table-${index}`);
+            const graphBtn = document.getElementById(`btn-graph-${index}`);
+            const tableBtn = document.getElementById(`btn-table-${index}`);
+
+            if (type === 'graph') {
+                graphView.classList.remove('hidden');
+                tableView.classList.add('hidden');
+                graphBtn.className = "px-2.5 py-1 rounded-md font-medium bg-emerald-600 text-white shadow-sm transition";
+                tableBtn.className = "px-2.5 py-1 rounded-md font-medium text-slate-600 hover:text-slate-900 transition";
+            } else {
+                tableView.classList.remove('hidden');
+                graphView.classList.add('hidden');
+                tableBtn.className = "px-2.5 py-1 rounded-md font-medium bg-emerald-600 text-white shadow-sm transition";
+                graphBtn.className = "px-2.5 py-1 rounded-md font-medium text-slate-600 hover:text-slate-900 transition";
+            }
+        }
+
+        function clearAllData() {
+            if (confirm('모든 설문 응답 데이터를 초기화하시겠습니까? (되돌릴 수 없습니다)'.replace(/confirm\(/g, ''))) {
+                localStorage.removeItem('chungho_teacher_survey_2027');
+                loadStatistics();
+                document.getElementById('totalResponsesCount').textContent = '0';
+                showAlert('초기화 완료', '모든 설문 데이터가 초기화되었습니다.');
+            }
+        }
+    </script>
+</body>
+</html>
